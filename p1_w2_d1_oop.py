@@ -13,6 +13,14 @@ class Student(object):
             return 'C'
         else:
             return 'F'
+    
+    # 题 3：给 Student 类加一个方法 introduce()，返回一个字符串，格式为：我叫张三，我的成绩是85分，等级是B。
+    # 要求：introduce() 内部必须调用 get_grade()，不能重复写等级判断逻辑。  
+    def introduce(self):
+        return f'我叫{self.name}，我的成绩是{self.score}分，等级是{self.get_grade()}' # 通过实例调用方法时，self 是 Python 自动传入的，不需要你手动写。
+    
+zhangsan = Student('张三', 95)
+print(zhangsan.introduce())
         
 # 题 2：定义一个 Rectangle 类，初始化时接收 width 和 height，写两个方法：area() 返回面积，perimeter() 返回周长。
 class Rectangle(object):
@@ -25,3 +33,6 @@ class Rectangle(object):
     
     def perimeter(self):
         return (self.height + self.width) * 2
+    
+
+
