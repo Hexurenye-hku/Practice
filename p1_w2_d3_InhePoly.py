@@ -39,19 +39,29 @@ class CreditAccount(BankAccount):
     
         else:
             print("Balance is not enough")
-            return False           
-        
+            return False     
 
+    def show_balance(self):
+        if self.get_balance() >= 0:
+            return super().show_balance() 
+        else:
+            return super().show_balance() + f'(Overdraft In Progress: {abs(self.get_balance())} of the credit limit already used.)'
+        
+'''
 sa_test = SavingAccount('Bruce', 1000)
 sa_test.add_interest(0.05)
 print(sa_test.show_balance())
+'''
 
 ca_test = CreditAccount('Hanwen', 100, 500)
+
+print(ca_test.show_balance())
+
 ca_test.withdraw(300)
 print(ca_test.show_balance())
 
 ca_test.withdraw(200)
 print(ca_test.show_balance())
 
-ca_test.withdraw(200)
+ca_test.withdraw(100)
 print(ca_test.show_balance())
